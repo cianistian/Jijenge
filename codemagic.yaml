@@ -22,8 +22,4 @@ workflows:
       # Location of the APK that will be generated
       - android/app/build/outputs/apk/release/app-release.apk
 
-    publishing:
-      # Publishing is now handled by `email` in a valid structure
-      email:
-      recipient:
-        - 'johnciapalmer@gmail.com'
+
