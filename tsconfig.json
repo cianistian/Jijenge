@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "commonjs",
+    "jsx": "react-native",
+    "types": ["react-native", "hammerjs"],
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "include": [
+    "app.tsx",
+    "src/**/*.ts"
+  ],
+  "extends": "expo/tsconfig.base",
+  "types": ["hammerjs"]
+}

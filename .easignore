@@ -1,0 +1,11 @@
+# Ignore the node_modules directory
+node_modules/
+
+# Ignore the .git directory
+.git/
+
+# Ignore a specific file
+path/to/file.txt
+
+# Ignore a specific directory
+path/to/directory/
