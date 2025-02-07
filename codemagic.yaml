@@ -1,10 +1,23 @@
 workflows:
   default:
-    name: Default Workflow
+    name: Build Android APK
+    max_build_duration: 60 # Optional, can limit build time
+    environment:
+      flutter: stable # Optional, for Flutter projects
+      node: 16 # Specify Node.js version
+      cache:
+        - node_modules # Cache node_modules for faster builds
     scripts:
       - name: Install dependencies
         script: |
           npm install
+
       - name: Build APK
         script: |
-          npx react-native run-android --variant=release
+          cd android && ./gradlew assembleRelease
+
+    artifacts:
+      - android/app/build/outputs/apk/release/app-release.apk
+
+    publishing:
+      email: 'johnciapalmer@gmail.com' # Optional: specify email for notifications
