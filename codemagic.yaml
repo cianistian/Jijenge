@@ -25,4 +25,4 @@ workflows:
     publishing:
       # Publishing is now handled by `email` in a valid structure
       emails:
-        - 'your-email@example.com'
+        - 'johnciapalmer@gmail.com'
