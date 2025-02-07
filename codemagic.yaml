@@ -1,0 +1,10 @@
+workflows:
+  default:
+    name: Default Workflow
+    scripts:
+      - name: Install dependencies
+        script: |
+          npm install
+      - name: Build APK
+        script: |
+          npx react-native run-android --variant=release
