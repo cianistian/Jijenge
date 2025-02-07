@@ -30,6 +30,7 @@
     "@babel/core": "^7.25.2",
     "@types/hammerjs": "^2.0.46",
     "@types/react": "^18.2.6",
+    "@react-native-community/cli": "latest",
     "@types/react-native": "^0.73.0",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.5.1",
