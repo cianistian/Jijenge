@@ -1,0 +1,50 @@
+name: Android APK Build
+
+on:
+  push:
+    branches:
+      - main # Change 'main' to your branch name if different
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out the code
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      # Step 2: Set up JDK
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: '11'
+
+      # Step 3: Install dependencies
+      - name: Install Dependencies
+        run: |
+          npm install
+          npm run build # Skip this step if you don't have a build step in package.json
+
+      # Step 4: Install Android SDK
+      - name: Install Android SDK
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 30
+          target: default
+          arch: x86_64
+          disable-animations: true
+
+      # Step 5: Build APK
+      - name: Build APK
+        run: |
+          cd android
+          ./gradlew assembleRelease
+
+      # Step 6: Upload APK as artifact
+      - name: Upload APK
+        uses: actions/upload-artifact@v3
+        with:
+          name: app-release.apk
+          path: android/app/build/outputs/apk/release/app-release.apk
